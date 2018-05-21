@@ -113,11 +113,11 @@ public final class AwtDrawableSurface extends JPanel {
                 RenderingHints.VALUE_ANTIALIAS_ON
             );
             final AwtContext context = this.context();
-            surface.setColor(Color.BLACK);
             for (final AbstractAwtPaint painter : this.painters) {
-                painter.setGraphics(surface);
                 painter.setContext(context);
                 for (final Shape shape : this.figure) {
+                    surface.setColor(shape.shapeColor());
+                    painter.setGraphics(surface);
                     painter.render(shape);
                 }
             }

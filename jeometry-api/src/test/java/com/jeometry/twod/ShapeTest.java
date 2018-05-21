@@ -23,6 +23,7 @@
  */
 package com.jeometry.twod;
 
+import java.awt.Color;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
@@ -43,7 +44,7 @@ public final class ShapeTest {
     public void exposesRenderableAndName() {
         final Renderable rend = Mockito.mock(Renderable.class);
         final String name = "hello";
-        final Shape shape = new Shape(rend, name);
+        final Shape shape = new Shape(rend, name, Color.BLACK);
         MatcherAssert.assertThat(shape.renderable(), Matchers.equalTo(rend));
         MatcherAssert.assertThat(shape.name(), Matchers.equalTo(name));
         MatcherAssert.assertThat(shape.anonymous(), Matchers.equalTo(false));

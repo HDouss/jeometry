@@ -39,7 +39,8 @@ final Circle circle = new DblCircle(rpoint, 2.);
 final Figure figure = new Figure().add(ppoint)
     .add(lline).add(mline)
     .add(qpoint).add(nline)
-    .add(rpoint).add(circle);
+    .add(rpoint);
+    figure.add(circle, Color.BLUE);
 ```
 
 The above code shows some of the jeometry API classes. Let's detail the purpose of these classes:

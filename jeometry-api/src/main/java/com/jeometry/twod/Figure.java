@@ -24,6 +24,7 @@
 package com.jeometry.twod;
 
 import com.google.common.base.Preconditions;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -79,13 +80,24 @@ public final class Figure implements Iterable<Shape> {
     }
 
     /**
+     * Adds an anonymous renderable to the figure.
+     * @param shape The renderable to add
+     * @param color The color of render
+     * @return This figure instance
+     */
+    public Figure add(final Renderable shape, final Color color) {
+        this.anonymous.add(new Shape(shape, color));
+        return this;
+    }
+
+    /**
      * Adds an named renderable to the figure.
      * @param shape The renderable to add
      * @param name The renderable name
      * @return This figure instance
      */
     public Figure add(final Renderable shape, final String name) {
-        final Shape shap = new Shape(shape, name);
+        final Shape shap = new Shape(shape, name, Color.BLACK);
         return this.add(shap);
     }
 

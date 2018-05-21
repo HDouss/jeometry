@@ -23,6 +23,7 @@
  */
 package com.jeometry.twod;
 
+import java.awt.Color;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Rule;
@@ -60,7 +61,9 @@ public final class FigureTest {
      */
     @Test
     public void addsNamedShape() {
-        final Shape shape = new Shape(Mockito.mock(Renderable.class), "name");
+        final Shape shape = new Shape(
+            Mockito.mock(Renderable.class), "name", Color.BLACK
+        );
         MatcherAssert.assertThat(
             new Figure().add(shape), Matchers.contains(shape)
         );
@@ -75,8 +78,8 @@ public final class FigureTest {
         this.thrown.expect(IllegalArgumentException.class);
         final String name = "twice";
         new Figure().add(
-            new Shape(Mockito.mock(Renderable.class), name)
-        ).add(new Shape(Mockito.mock(Renderable.class), name));
+            new Shape(Mockito.mock(Renderable.class), name, Color.BLACK)
+        ).add(new Shape(Mockito.mock(Renderable.class), name, Color.BLACK));
     }
 
     /**
@@ -110,7 +113,9 @@ public final class FigureTest {
     @Test
     public void retrievesShapeByName() {
         final String name = "hello";
-        final Shape shape = new Shape(Mockito.mock(Renderable.class), name);
+        final Shape shape = new Shape(
+            Mockito.mock(Renderable.class), name, Color.BLACK
+        );
         MatcherAssert.assertThat(
             new Figure().add(shape).shape(name).get(), Matchers.equalTo(shape)
         );

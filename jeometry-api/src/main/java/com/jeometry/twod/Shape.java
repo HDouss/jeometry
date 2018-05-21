@@ -23,6 +23,7 @@
  */
 package com.jeometry.twod;
 
+import java.awt.Color;
 import lombok.ToString;
 
 /**
@@ -40,6 +41,11 @@ public final class Shape {
     private static final String NO_NAME = "NO_NAME";
 
     /**
+     * Color of the shape.
+     */
+    private Color color;
+
+    /**
      * Renderable.
      */
     private final Renderable rndrable;
@@ -53,10 +59,14 @@ public final class Shape {
      * Ctor.
      * @param rndrable Renderable
      * @param symbol Renderable name
+     * @param color Renderable color
      */
-    public Shape(final Renderable rndrable, final String symbol) {
+    public Shape(
+        final Renderable rndrable, final String symbol, final Color color
+    ) {
         this.rndrable = rndrable;
         this.symbol = symbol;
+        this.color = color;
     }
 
     /**
@@ -64,7 +74,16 @@ public final class Shape {
      * @param rndrable Renderable
      */
     public Shape(final Renderable rndrable) {
-        this(rndrable, Shape.NO_NAME);
+        this(rndrable, Shape.NO_NAME, Color.BLACK);
+    }
+
+    /**
+     * Ctor. Builds an anonymous renderable with color.
+     * @param rndrable Renderable
+     * @param color Color of render
+     */
+    public Shape(final Renderable rndrable, final Color color) {
+        this(rndrable, Shape.NO_NAME, color);
     }
 
     /**
@@ -81,6 +100,14 @@ public final class Shape {
      */
     public String name() {
         return this.symbol;
+    }
+
+    /**
+     * Accessor for the color.
+     * @return The color
+     */
+    public Color shapeColor() {
+        return this.color;
     }
 
     /**
