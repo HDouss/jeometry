@@ -46,4 +46,15 @@ public final class HorPointTest {
             Matchers.equalTo(new AddIdentity())
         );
     }
+
+    /**
+     * {@link HorPoint} toString prints underlying coordinates.
+     */
+    @Test
+    public void toStringPrintsCoordinates() {
+        MatcherAssert.assertThat(
+            new HorPoint().toString(),
+            Matchers.containsString(new AddIdentity().toString())
+        );
+    }
 }

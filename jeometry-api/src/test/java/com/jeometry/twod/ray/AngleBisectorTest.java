@@ -26,11 +26,13 @@ package com.jeometry.twod.ray;
 import com.aljebra.field.impl.doubles.Dot;
 import com.aljebra.metric.InnerProduct;
 import com.aljebra.vector.Vect;
+import com.jeometry.twod.angle.Angle;
 import com.jeometry.twod.angle.VectsAngle;
 import com.jeometry.twod.point.RandomPoint;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 /**
  * Tests for {@link AngleBisector}.
@@ -63,4 +65,15 @@ public final class AngleBisectorTest {
         MatcherAssert.assertThat(bisector.origin(), Matchers.equalTo(origin));
     }
 
+    /**
+     * {@link AngleBisector} toString prints the bisected angle.
+     */
+    @Test
+    public void toStringContainsAngle() {
+        final Angle angle = Mockito.mock(Angle.class);
+        MatcherAssert.assertThat(
+            new AngleBisector(angle).toString(),
+            Matchers.containsString(angle.toString())
+        );
+    }
 }

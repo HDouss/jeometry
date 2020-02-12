@@ -25,7 +25,6 @@ package com.jeometry.twod.ray;
 
 import com.aljebra.vector.Minus;
 import com.aljebra.vector.Vect;
-import lombok.ToString;
 
 /**
  * A ray defined by its origin and one point belonging to the ray.
@@ -33,7 +32,6 @@ import lombok.ToString;
  * @version $Id$
  * @since 0.1
  */
-@ToString
 public final class PtsRay extends PtDirRay {
 
     /**

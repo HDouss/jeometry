@@ -49,4 +49,19 @@ public final class PtDirRayTest {
         MatcherAssert.assertThat(ray.direction(), Matchers.equalTo(dir));
     }
 
+    /**
+     * {@link PtDirRay} toString prints origin and direction.
+     */
+    @Test
+    public void toStringContainsOriginAndDirection() {
+        final Vect origin = new RandomPoint();
+        final Vect dir = new RandomPoint();
+        MatcherAssert.assertThat(
+            new PtDirRay(origin, dir).toString(),
+            Matchers.allOf(
+                Matchers.containsString(origin.toString()),
+                Matchers.containsString(dir.toString())
+            )
+        );
+    }
 }

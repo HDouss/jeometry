@@ -23,6 +23,7 @@
  */
 package com.jeometry.twod.point;
 
+import com.aljebra.scalar.Random;
 import com.aljebra.scalar.Scalar;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -47,6 +48,18 @@ public final class YPointTest {
         );
         MatcherAssert.assertThat(
             new YPoint(ycoor).coords()[1], Matchers.equalTo(ycoor)
+        );
+    }
+
+    /**
+     * {@link YPoint} toString prints underlying coordinates.
+     */
+    @Test
+    public void toStringPrintsCoordinates() {
+        final Random scalar = new Random();
+        MatcherAssert.assertThat(
+            new YPoint(scalar).toString(),
+            Matchers.containsString(scalar.toString())
         );
     }
 }
