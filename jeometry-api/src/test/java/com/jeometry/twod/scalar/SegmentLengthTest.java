@@ -28,6 +28,8 @@ import com.aljebra.scalar.AddIdentity;
 import com.aljebra.scalar.Greater;
 import com.aljebra.scalar.Scalar;
 import com.jeometry.twod.segment.LengthSegment;
+import com.jeometry.twod.segment.RandomSegment;
+import com.jeometry.twod.segment.Segment;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
@@ -54,4 +56,40 @@ public final class SegmentLengthTest {
         );
     }
 
+    /**
+     * {@link SegmentLength} toString prints the underlying segment.
+     */
+    @Test
+    public void toStringContainsSegment() {
+        final Segment seg = new RandomSegment();
+        MatcherAssert.assertThat(
+            new SegmentLength(seg).toString(),
+            Matchers.containsString(seg.toString())
+        );
+    }
+
+    /**
+     * {@link SegmentLength} instances are considered equals if they have the
+     * same underlying segment.
+     */
+    @Test
+    public void respectsEqualsForSameSegment() {
+        final Segment seg = new RandomSegment();
+        MatcherAssert.assertThat(
+            new SegmentLength(seg), Matchers.equalTo(new SegmentLength(seg))
+        );
+    }
+
+    /**
+     * {@link SegmentLength} instances have same hashcode if they have the same
+     * underlying segment.
+     */
+    @Test
+    public void respectsHashCodeForSameSegment() {
+        final Segment seg = new RandomSegment();
+        MatcherAssert.assertThat(
+            new SegmentLength(seg).hashCode(),
+            Matchers.equalTo(new SegmentLength(seg).hashCode())
+        );
+    }
 }

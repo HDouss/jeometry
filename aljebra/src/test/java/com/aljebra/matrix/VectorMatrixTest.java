@@ -66,6 +66,35 @@ public final class VectorMatrixTest {
     }
 
     /**
+     * {@link VectorMatrix} instances are considered equals if they have the
+     * same coordinates.
+     */
+    @Test
+    public void considersEqualsIfSameCoordinates() {
+        final Scalar[] coords = VectorMatrixTest.scalars(
+            new Random().nextInt(VectorMatrixTest.INT_RANDOM)
+        );
+        MatcherAssert.assertThat(
+            new VectorMatrix(coords), Matchers.equalTo(new VectorMatrix(coords))
+        );
+    }
+
+    /**
+     * {@link VectorMatrix} instances have same hashcode if they have the same
+     * coordinates.
+     */
+    @Test
+    public void sameHashCodeIfSameCoordinates() {
+        final Scalar[] coords = VectorMatrixTest.scalars(
+            new Random().nextInt(VectorMatrixTest.INT_RANDOM)
+        );
+        MatcherAssert.assertThat(
+            new VectorMatrix(coords).hashCode(),
+            Matchers.equalTo(new VectorMatrix(coords).hashCode())
+        );
+    }
+
+    /**
      * Mocks an array of {@link Scalar} with a given length.
      * @param length Array length
      * @return An array of scalars

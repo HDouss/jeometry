@@ -27,7 +27,6 @@ import com.aljebra.scalar.Scalar;
 import com.aljebra.vector.FixedVector;
 import com.aljebra.vector.Vect;
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 /**
  * Represents a one-row-matrix defined by a vector.
@@ -36,7 +35,6 @@ import lombok.ToString;
  * @since 0.1
  */
 @EqualsAndHashCode(callSuper = true)
-@ToString
 public class VectorMatrix extends FixedMatrix {
 
     /**
