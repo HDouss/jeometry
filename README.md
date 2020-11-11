@@ -1,6 +1,7 @@
 # jeometry
 <img align="left" alt="Logo" src="https://github.com/HDouss/jeometry/blob/gh-pages/images/path3479.png" width="100" />
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jorigin/jeometry/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.jorigin/jeometry)
 [![Build Status](https://travis-ci.org/HDouss/jeometry.svg?branch=master)](https://travis-ci.org/HDouss/jeometry)
 [![Coverage Status](https://coveralls.io/repos/github/HDouss/jeometry/badge.svg?branch=master)](https://coveralls.io/github/HDouss/jeometry?branch=master)<br/><br/>
 jeometry is a Java 2D geometric figures construction library.
