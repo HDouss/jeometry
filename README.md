@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/HDouss/jeometry.svg?branch=master)](https://travis-ci.org/HDouss/jeometry)
 [![Coverage Status](https://coveralls.io/repos/github/HDouss/jeometry/badge.svg?branch=master)](https://coveralls.io/github/HDouss/jeometry?branch=master)<br/><br/>
 jeometry is a Java 2D geometric figures construction library.
-It provides a simple API to:com.github.hdouss
+It provides a simple API to:
 * Build a geometric figure based on renderable shapes and relations between these shapes
 * Output the figure to the screen
 
