@@ -13,6 +13,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Create a new temporary branch
       run: git checkout -b release_${{ github.event.milestone.title }}
+    - uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '8'
+        check-latest: true
     - name: Set version in pom
       run: mvn versions:set -DnewVersion=${{ github.event.milestone.title }}
     - name: Commit pom changes
