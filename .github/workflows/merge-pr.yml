@@ -12,6 +12,11 @@ jobs:
     - name: Merge master
       run: |
         git merge origin/master
+    - uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '8'
+        check-latest: true
     - name: Setup headless environment and run maven
       env:
         DISPLAY: ':99'
